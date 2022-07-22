@@ -1,0 +1,37 @@
+{
+  "question1": {
+    "question": "Hi Agus, what _____ doing here?",
+    "a": "do you",
+    "b": "you are",
+    "c": "are you",
+    "answer": "c"
+  },
+  "question2": {
+    "question": "What does Agus _____? He’s a Cybersecurity Analyst.",
+    "a": "does",
+    "b": "make",
+    "c": "do",
+    "answer": "c"
+  },
+  "question3": {
+    "question": "I think it will be ______ if I contact him by email.",
+    "a": "easier",
+    "b": "more easier",
+    "c": "more easy",
+    "answer": "a"
+  },
+  "question4": {
+    "question": "Agus did not answer my message. _______ call him?",
+    "a": "Should I",
+    "b": "Have I",
+    "c": "Would I",
+    "answer": "a"
+  },
+  "question5": {
+    "question": "Can _______ help me with this, please?",
+    "a": "somebody",
+    "b": "anybody",
+    "c": "everybody",
+    "answer": "a"
+  }
+}
