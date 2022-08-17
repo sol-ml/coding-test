@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react'
-  
-export const DataContext = React.createContext()
+import React, { useContext, useState } from "react";
+import { useTimer } from "react-timer-hook";
+export const DataContext = React.createContext();
 
-export function useInfo () {
-  return useContext(DataContext)
+export function useInfo() {
+  return useContext(DataContext);
 }
 
 const answers = {
@@ -12,20 +12,35 @@ const answers = {
   question3: "a",
   question4: "a",
   question5: "a",
-} 
+};
 
-export function InfoProvider ({ children }) {
-  const  [data , setData] = useState(answers)  
-const value = {
-  data,
-  setData
+export function Counter({ expiryTimestamp }) {
+  const { seconds, minutes, start } = useTimer({
+    expiryTimestamp,
+    autoStart: false,
+  });
+
+  const time = new Date();
+  time.setMinutes(time.getMinutes());
+
+  return (
+    <div className="space-x-2 font-semibold text-3x1" style={{ width: 100 }}>
+      <span>{minutes}</span> : <span>{seconds}</span>
+      <span>{start}</span>
+      {/* en este componente solo llamamos a minuts */}
+    </div>
+  );
 }
- 
-  return <DataContext.Provider value={value}>
-    {children}
-  </DataContext.Provider>
+
+export function InfoProvider(props) {
+  const [data, setData] = useState(answers);
+
+  const value = {
+    data,
+    setData
+  };
+
+  return (
+    <DataContext.Provider value={value}>{props.children}</DataContext.Provider>
+  );
 }
-
-
-
-

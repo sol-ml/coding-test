@@ -1,20 +1,24 @@
-import { useInfo } from '../context/AnswerContext'
+import { useInfo } from "../context/AnswerContext";
+import { useState } from "react";
 
-function Answers() {
+export function Answers() {
+  const value = useInfo();
+ const [isCorrect, setIsCorrect] = useState(0)
+  const [count, setCount ] = useState(0)  
+  console.log(value)
 
-const value = useInfo();
- console.log(value) 
-  
-   if (value) {} 
-   
+  /*  añadir puntuacion  */
+ 
+   if (value.lenght) {
+    setIsCorrect( isCorrect + 1);
+  } else{
+  }
+ 
   return (
-      <div>
-        <span>
-        {value && <p>Obtuviste {value.data.question1} de 5 </p>}
-    {/*      { value {`${value.data}`} de {`$`}} */}
-        </span>
-      </div>
-  )
+    <div>
+      <p>Obtuviste {isCorrect } de 5 </p>
+    </div>
+  );
 }
 
 export default Answers;

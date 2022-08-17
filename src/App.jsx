@@ -2,8 +2,7 @@ import {Route, Routes} from 'react-router-dom'
 import Header from './Components/Header'
 import TestPage from './Components/TestPage'
 import QuestionBlock from './Components/QuestionBlock'
-
-/* import Provider from './context/Provider' */
+import NotFound from './Components/NotFound'
 
 function App()  {
   return (
@@ -11,8 +10,8 @@ function App()  {
         <Header />
       <Routes>
         <Route path= '/' element= { <TestPage /> } />
-        <Route path= '/beginner-test' element= { <QuestionBlock /> } />
-        <Route path= ':id' element= { <QuestionBlock />} /> 
+        <Route path= '/beginner-test/:id' element= { <QuestionBlock /> } /> 
+        <Route path= '*' element= { <NotFound/>} /> 
        </Routes>
       </div> 
 )
