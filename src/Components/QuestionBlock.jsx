@@ -1,23 +1,13 @@
 import { Link, useParams } from 'react-router-dom'
 import Speak from '../speak.json'
 import Options from './Options'
-import Answers from './Answer'
-import { useState } from 'react'
 
 export function QuestionBlock() {
-  /*  const [select, setSelect] = useState(true) */
-
-  const changeOptions = () => {
-    alert(`seleccionaste`);
-  };
-
-  /*  const selected = () => {
-  setSelect(select.option);
-}; */
-
+ 
   const questions = Object.entries(Speak);
   const { id } = useParams();
-  const urlId = (parseInt(id) + 1);
+  const urlId = parseInt(id) + 1 ;
+  console.log(questions.length);
 
   return (
     <div
@@ -28,42 +18,27 @@ export function QuestionBlock() {
         {urlId}
       </p>
 
-    {/*   {questions.map((elem, index) =>
-        index === 0 ? (
-            <div className=' w-full max-w-[600px]'>
-              <p className="question"> {elem[1].question}</p>
-              <Options  selected={changeOptions} option={elem[1].a} questionNumber={"a"} />
-              <Options  selected={changeOptions} option={elem[1].b} questionNumber={"b"} />
-              <Options  selected={changeOptions} option={elem[1].c} questionNumber={"c"} />  
-            </div>
-      )  : null )
-           } */}
-
-     <div className=" w-full max-w-[600px]">
+      <div className=" w-full max-w-[600px]">
         <p className="question"> {questions[id][1].question}</p>
         <Options
-          selected={changeOptions}
+          className= 'selected'
           option={questions[id][1].a}
           questionNumber={"a"}
         />
         <Options
-          selected={changeOptions}
           option={questions[id][1].b}
           questionNumber={"b"}
         />
         <Options
-          selected={changeOptions}
           option={questions[id][1].c}
           questionNumber={"c"}
         />
-      </div> 
-
-      <button onClick className="uppercase next-button mt-12 ">
-        <Link  to={urlId}>
-          Siguiente
+      </div>
+      <button className="uppercase next-button mt-12">
+        <Link to={`/beginner-test/${urlId}`}>
+          {questions.length <= 5 ? "Siguiente" : "Finalizar"}
         </Link>
       </button>
-      <Answers/>
     </div>
   );
 }

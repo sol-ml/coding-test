@@ -17,7 +17,7 @@ function TestPage () {
         alt="avatar.png"
       />
       <button onClick className="p-2 w-60 bg-[#726EFF] font-semibold text-xl text-white uppercase rounded-2xl">
-           <Link to='/beginner-test'> Siguiente</Link>
+           <Link to='/beginner-test/0'> Siguiente</Link>
       </button>
     </div>
   </div>

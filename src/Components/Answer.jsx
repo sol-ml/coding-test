@@ -1,22 +1,24 @@
 import { useInfo } from "../context/AnswerContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function Answers() {
   const value = useInfo();
- const [isCorrect, setIsCorrect] = useState(0)
-  const [count, setCount ] = useState(0)  
-  console.log(value)
+  const [isCorrect, setIsCorrect] = useState(useInfo());
+  const [count, setCount] = useState(0);
+  console.log(value);
 
   /*  añadir puntuacion  */
- 
-   if (value.lenght) {
-    setIsCorrect( isCorrect + 1);
-  } else{
-  }
- 
+
+/*   useEffect(() => {
+    setCount(count + 1);
+  }, [value.question1]);
+
+  const answer = ()=>{
+    setIsCorrect( { ...value.data } )
+  } */
   return (
-    <div>
-      <p>Obtuviste {isCorrect } de 5 </p>
+    <div> 
+      <p>Obtuviste {isCorrect} de 5 </p>
     </div>
   );
 }
